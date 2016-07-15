@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		canvas {
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="tutorial" width="800" height="500"></canvas>
+
+	<script type="text/javascript">
+		var draw = function() {
+			var canvas = document.getElementById("tutorial");
+			if (canvas.getContext) {
+				var ctx = canvas.getContext("2d");
+				ctx.fillStyle = "#FC8989";
+				ctx.fillRect(20, 20, 80, 80);
+				// 清除矩形
+				ctx.clearRect(30, 30, 60, 60);
+
+				ctx.strokeStyle = "#67E182";
+				// 绘制边框矩形
+				ctx.strokeRect (35, 35, 50, 50); // 括号里：x, y, width, height		
+
+				// 绘制三角形
+				ctx.fillStyle = "#7C77EC";
+				ctx.beginPath();
+				ctx.moveTo(200, 200);
+				ctx.lineTo(160, 160);
+				ctx.lineTo(160, 240);
+				ctx.fill();	
+
+
+				// 绘制笑脸
+				ctx.strokeStyle = "#F0D20C";
+				ctx.beginPath();
+				ctx.arc(260, 260, 50, 0, Math.PI * 2, true);
+				ctx.moveTo(295, 260);
+				ctx.arc(260, 260, 35, 0, Math.PI, false);
+				ctx.moveTo(248, 248);
+				ctx.arc(240, 248, 8, 0, Math.PI * 2, true);
+				ctx.moveTo(288, 248);
+				ctx.arc(280, 248, 8, 0, Math.PI * 2, true);			
+				ctx.closePath();	
+				ctx.stroke();
+
+				// 三角形
+				ctx.beginPath();
+				ctx.moveTo(20, 280);
+				ctx.lineTo(80, 280);
+				ctx.lineTo(20, 340);
+				ctx.fill();
+				ctx.strokeStyle = "#3B74EC";
+				ctx.beginPath();
+				ctx.moveTo(100, 350);
+				ctx.lineTo(100, 290);
+				ctx.lineTo(40, 350);				
+				ctx.closePath(); // 必须闭合，否则只有两条线
+				ctx.stroke();
+
+				// 二次贝塞尔曲线
+				ctx.beginPath();
+				
+
+			} else {
+				canvas.innerHTML = "canvas 替换内容";
+			};
+		};
+		
+		window.onload = draw;	
+	</script>
+</body>
+</html>

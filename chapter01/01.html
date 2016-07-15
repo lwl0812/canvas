@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		canvas {
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="tutorial" width="150" height="150"></canvas>
+
+	<script type="text/javascript">
+		var draw = function() {
+			var canvas = document.getElementById("tutorial");
+			if (canvas.getContext) {
+				var ctx = canvas.getContext("2d");
+				console.log(ctx);
+				ctx.fillStyle = "rgb(245,136,136)";
+				// 绘制填充矩形
+				ctx.fillRect (0, 0, 55, 55); // 括号里：x, y, width, height 
+
+				ctx.fillStyle = "#96DBFE";
+				ctx.fillRect (95, 95, 55, 55);
+			} else {
+				canvas.innerHTML = "canvas 替换内容";
+			};
+		};
+		
+		window.onload = draw;	
+	</script>
+</body>
+</html>
